@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Actualizar la lista de paquetes
+echo "Actualizando la lista de paquetes..."
+sudo apt-get update
+
+# Instalar Apache
+echo "Instalando Apache..."
+sudo apt-get install -y apache2
+
+# Instalar Node.js y npm
+echo "Instalando Node.js y npm..."
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Instalar Java 17
+echo "Instalando Java 17..."
+sudo apt-get install -y openjdk-17-jdk
+
+# Instalar MySQL
+echo "Instalando MySQL..."
+sudo apt-get install -y mysql-server
+
+# Configurar MySQL (opcional)
+# Descomenta las siguientes líneas si deseas ejecutar un script de configuración seguro para MySQL
+# echo "Configurando MySQL..."
+# sudo mysql_secure_installation
+
+# Verificar las instalaciones
+echo "Verificando las instalaciones..."
+apache2 -v
+node -v
+npm -v
+java -version
+mysql --version
+
+echo "Instalación completada."
